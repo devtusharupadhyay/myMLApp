@@ -1,0 +1,254 @@
+﻿{
+  "Scenario": "Classification",
+  "DataSource": {
+    "Type": "SQL",
+    "Version": 1,
+    "ColumnProperties": [
+      {
+        "ColumnName": "col0",
+        "ColumnPurpose": "Feature",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      },
+      {
+        "ColumnName": "col1",
+        "ColumnPurpose": "Label",
+        "ColumnDataFormat": "String",
+        "IsCategorical": false,
+        "Type": "Column",
+        "Version": 4
+      }
+    ],
+    "ConnectionString": "Data Source=DEVTUSHAR\\SQLEXPRESS;Initial Catalog=ContosoRetailDW;Integrated Security=True",
+    "CommandString": "SELECT CAST([col0] as NVARCHAR(MAX)), CAST([col1] as NVARCHAR(MAX)) FROM [dbo].[CustomerFeedback]",
+    "DatabaseName": "ContosoRetailDW",
+    "SelectedTableDbo": "dbo",
+    "TableName": "CustomerFeedback"
+  },
+  "Environment": {
+    "Type": "LocalCPU",
+    "Version": 1
+  },
+  "RunHistory": {
+    "Version": 3,
+    "Type": "Result",
+    "Trials": [
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsMaximumEntropyMulti",
+        "Score": 0.79160692772336527,
+        "RuntimeInSeconds": 0.802,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e6 * e9",
+          "e0": {
+            "InputColumnName": "col0",
+            "OutputColumnName": "col0"
+          },
+          "e1": {
+            "InputColumnNames": [
+              "col0"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e2": {
+            "OutputColumnName": "col1",
+            "InputColumnName": "col1",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "L1Regularization": 0.0420050025,
+            "L2Regularization": 0.04303217,
+            "LabelColumnName": "col1",
+            "FeatureColumnName": "Features"
+          },
+          "e9": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsMaximumEntropyMulti",
+        "Score": 0.78560000131201269,
+        "RuntimeInSeconds": 0.419,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e6 * e9",
+          "e0": {
+            "InputColumnName": "col0",
+            "OutputColumnName": "col0"
+          },
+          "e1": {
+            "InputColumnNames": [
+              "col0"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e2": {
+            "OutputColumnName": "col1",
+            "InputColumnName": "col1",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "L1Regularization": 0.152155921,
+            "L2Regularization": 0.737424,
+            "LabelColumnName": "col1",
+            "FeatureColumnName": "Features"
+          },
+          "e9": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.7835776389215513,
+        "RuntimeInSeconds": 2.634,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e9",
+          "e0": {
+            "InputColumnName": "col0",
+            "OutputColumnName": "col0"
+          },
+          "e1": {
+            "InputColumnNames": [
+              "col0"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e2": {
+            "OutputColumnName": "col1",
+            "InputColumnName": "col1",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 3,
+            "NumberOfTrees": 43,
+            "MaximumBinCountPerFeature": 142,
+            "FeatureFraction": 0.82233607134758224,
+            "LearningRate": 0.18248589835030926,
+            "LabelColumnName": "col1",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          },
+          "e9": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "FastTreeOva",
+        "Score": 0.78247977107805833,
+        "RuntimeInSeconds": 4.283,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e3 * e9",
+          "e0": {
+            "InputColumnName": "col0",
+            "OutputColumnName": "col0"
+          },
+          "e1": {
+            "InputColumnNames": [
+              "col0"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e2": {
+            "OutputColumnName": "col1",
+            "InputColumnName": "col1",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e3": {
+            "NumberOfLeaves": 4,
+            "MinimumExampleCountPerLeaf": 6,
+            "NumberOfTrees": 131,
+            "MaximumBinCountPerFeature": 49,
+            "FeatureFraction": 0.78835877038495006,
+            "LearningRate": 0.99999977667298645,
+            "LabelColumnName": "col1",
+            "FeatureColumnName": "Features",
+            "DiskTranspose": false
+          },
+          "e9": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      },
+      {
+        "Version": 1,
+        "Type": "Trial",
+        "TrainerName": "LbfgsMaximumEntropyMulti",
+        "Score": 0.78109066461120591,
+        "RuntimeInSeconds": 0.35,
+        "Parameter": {
+          "_SCHEMA_": "e0 * e1 * e2 * e6 * e9",
+          "e0": {
+            "InputColumnName": "col0",
+            "OutputColumnName": "col0"
+          },
+          "e1": {
+            "InputColumnNames": [
+              "col0"
+            ],
+            "OutputColumnName": "Features"
+          },
+          "e2": {
+            "OutputColumnName": "col1",
+            "InputColumnName": "col1",
+            "AddKeyValueAnnotationsAsText": false
+          },
+          "e6": {
+            "L1Regularization": 0.03125,
+            "L2Regularization": 2.840395,
+            "LabelColumnName": "col1",
+            "FeatureColumnName": "Features"
+          },
+          "e9": {
+            "OutputColumnName": "PredictedLabel",
+            "InputColumnName": "PredictedLabel"
+          }
+        }
+      }
+    ],
+    "Estimators": {
+      "e0": "FeaturizeText",
+      "e1": "Concatenate",
+      "e2": "MapValueToKey",
+      "e3": "FastTreeOva",
+      "e4": "FastForestOva",
+      "e5": "LbfgsLogisticRegressionOva",
+      "e6": "LbfgsMaximumEntropyMulti",
+      "e7": "SdcaMaximumEntropyMulti",
+      "e8": "SdcaLogisticRegressionOva",
+      "e9": "MapKeyToValue"
+    },
+    "Schema": "e0 * e1 * e2 * (e3 + e4 + e5 + e6 + e7 + e8) * e9",
+    "MetricName": "MacroAccuracy",
+    "ModelFilePath": "D:\\Code\\MachineLearning\\myMLApp\\myMLApp\\SentimentModel.mlnet"
+  },
+  "Type": "TrainingConfig",
+  "Version": 4,
+  "TrainingOption": {
+    "Version": 2,
+    "Subsampling": false,
+    "Type": "ClassificationTrainingOption",
+    "TrainingTime": 60,
+    "LabelColumn": "col1",
+    "ValidationOption": {
+      "Version": 0,
+      "Type": "CrossValidationValidationOption",
+      "NumberOfFolds": 5
+    }
+  }
+}

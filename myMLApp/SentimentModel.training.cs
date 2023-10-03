@@ -16,7 +16,7 @@ namespace MyMLApp
     public partial class SentimentModel
     {
         public const string RetrainConnectionString = @"Data Source=DEVTUSHAR\SQLEXPRESS;Initial Catalog=ContosoRetailDW;Integrated Security=True";
-        public const string RetrainCommandString = @"SELECT CAST([col0] as NVARCHAR(MAX)), CAST([col1] as NVARCHAR(MAX)) FROM [dbo].[CustomerFeedback]";
+        public const string RetrainCommandString = @"SELECT CAST([col0] as NVARCHAR(MAX)), CAST([col1] as REAL) FROM [dbo].[CustomerFeedback]";
 
         /// <summary>
         /// Train a new model with the provided dataset.
@@ -92,7 +92,7 @@ namespace MyMLApp
             var pipeline = mlContext.Transforms.Text.FeaturizeText(inputColumnName:@"col0",outputColumnName:@"col0")      
                                     .Append(mlContext.Transforms.Concatenate(@"Features", new []{@"col0"}))      
                                     .Append(mlContext.Transforms.Conversion.MapValueToKey(outputColumnName:@"col1",inputColumnName:@"col1",addKeyValueAnnotationsAsText:false))      
-                                    .Append(mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(new LbfgsMaximumEntropyMulticlassTrainer.Options(){L1Regularization=0.042005F,L2Regularization=0.04303217F,LabelColumnName=@"col1",FeatureColumnName=@"Features"}))      
+                                    .Append(mlContext.MulticlassClassification.Trainers.LbfgsMaximumEntropy(new LbfgsMaximumEntropyMulticlassTrainer.Options(){L1Regularization=0.1065878F,L2Regularization=0.1956017F,LabelColumnName=@"col1",FeatureColumnName=@"Features"}))      
                                     .Append(mlContext.Transforms.Conversion.MapKeyToValue(outputColumnName:@"PredictedLabel",inputColumnName:@"PredictedLabel"));
 
             return pipeline;

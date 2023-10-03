@@ -21,7 +21,7 @@ namespace MyMLApp
 
             [LoadColumn(1)]
             [ColumnName(@"col1")]
-            public string Col1 { get; set; }
+            public float Col1 { get; set; }
 
         }
 
@@ -43,7 +43,7 @@ namespace MyMLApp
             public float[] Features { get; set; }
 
             [ColumnName(@"PredictedLabel")]
-            public string PredictedLabel { get; set; }
+            public float PredictedLabel { get; set; }
 
             [ColumnName(@"Score")]
             public float[] Score { get; set; }
@@ -115,7 +115,7 @@ namespace MyMLApp
             }
 
             // Key values contains an ordered array of the possible labels. This allows us to map the results to the correct label value.
-            var keyNames = new VBuffer<ReadOnlyMemory<char>>();
+            var keyNames = new VBuffer<float>();
             labelColumn.Value.GetKeyValues(ref keyNames);
             return keyNames.DenseValues().Select(x => x.ToString());
         }

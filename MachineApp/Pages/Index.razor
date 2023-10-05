@@ -1,0 +1,67 @@
+﻿@page "/"
+
+<div>
+
+
+<textarea class="form-control" placeholder="Enter your feedback" @bind="feedback"> </textarea>
+
+    <div class="text-center">
+        <button class="btn btn-primary m-4" @onclick="OnFeedbackSubmit">Submit</button>
+    </div>
+
+    <div class="text-center">
+        @if (emojiURL != string.Empty)
+        {
+            <img src="@emojiURL" style="width: 200px; height: 200px;" />
+            <label>@feedbackText</label>
+        }
+        
+    </div>
+</div>
+
+@code
+{
+    private string feedback;
+    private string emojiURL = string.Empty;
+    private string feedbackText;
+    public void OnFeedbackSubmit()
+    {
+        SentimentModel.ModelInput sampleData = new SentimentModel.ModelInput()
+            {
+                Col0 = feedback,
+            };
+
+        var sortedScoresWithLabel = SentimentModel.PredictAllLabels(sampleData);
+
+        float sadPercentage = 0;
+        float happyPercentage = 0;
+        bool isCustomerHappy = false;
+        foreach (var score in sortedScoresWithLabel)
+        {
+            Console.WriteLine($"{score.Key,-40}{score.Value,-20}");
+            if (score.Key == "0")
+            {
+                sadPercentage = score.Value;
+            }
+            if (score.Key == "1")
+            {
+                happyPercentage = score.Value;
+            }
+
+        }
+
+        if (happyPercentage > sadPercentage)
+        {
+            isCustomerHappy = true;
+            emojiURL = "../images/happyface.jpg";
+            feedbackText = "Customer is happy";
+        }
+        else
+        {
+            isCustomerHappy = false;
+            emojiURL = "../images/sadface.jpg";
+            feedbackText = "Customer is Sad";
+        }
+
+    }
+}

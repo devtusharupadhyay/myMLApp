@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "myMLApp", "myMLApp\myMLApp.csproj", "{DEE12A67-569D-4A82-A908-D9E2B8428055}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SentimentModel_ConsoleApp1", "SentimentModel_ConsoleApp1\SentimentModel_ConsoleApp1.csproj", "{7A42C3DC-E2B2-4635-91E3-402F162F498E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MachineApp", "MachineApp\MachineApp.csproj", "{419B84CB-17CD-47C0-98E1-A821D34D0839}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DEE12A67-569D-4A82-A908-D9E2B8428055}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DEE12A67-569D-4A82-A908-D9E2B8428055}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DEE12A67-569D-4A82-A908-D9E2B8428055}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DEE12A67-569D-4A82-A908-D9E2B8428055}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A42C3DC-E2B2-4635-91E3-402F162F498E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A42C3DC-E2B2-4635-91E3-402F162F498E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A42C3DC-E2B2-4635-91E3-402F162F498E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A42C3DC-E2B2-4635-91E3-402F162F498E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{419B84CB-17CD-47C0-98E1-A821D34D0839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{419B84CB-17CD-47C0-98E1-A821D34D0839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{419B84CB-17CD-47C0-98E1-A821D34D0839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{419B84CB-17CD-47C0-98E1-A821D34D0839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
